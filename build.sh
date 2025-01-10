@@ -105,4 +105,3 @@ then
 else
   mvn -B -Dorg.bytedeco.javacpp.platform=$DETECTED_PLATFORM install
 fi
-
