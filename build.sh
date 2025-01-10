@@ -102,7 +102,7 @@ cd ../..
 # only deploy with deploy command line param
 if [ $# -gt 0 ] && [ $1 = "deploy" ]
 then
-  mvn -B -Dorg.bytedeco.javacpp.platform=$DETECTED_PLATFORM --settings mvnsettings.xml deploy
+  mvn -B -Dorg.bytedeco.javacpp.platform=$DETECTED_PLATFORM -Djavacpp.compilerOptions=-g --settings mvnsettings.xml deploy
 else
-  mvn -B -Dorg.bytedeco.javacpp.platform=$DETECTED_PLATFORM install
+  mvn -B -Dorg.bytedeco.javacpp.platform=$DETECTED_PLATFORM -Djavacpp.compilerOptions=-g install
 fi
