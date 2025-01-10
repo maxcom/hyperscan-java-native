@@ -78,18 +78,18 @@ case $DETECTED_PLATFORM in
 linux-x86_64)
   cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX="$(pwd)/.." -DCMAKE_INSTALL_LIBDIR="lib" -DPCRE_SOURCE="." -DFAT_RUNTIME=on -DBUILD_SHARED_LIBS=on -DBUILD_AVX2=yes -DBUILD_AVX512=yes -DBUILD_AVX512VBMI=yes .
   make -j $THREADS
-  make install/strip
+  make install
   ;;
 linux-arm64)
   CC="clang" CXX="clang++" cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX="$(pwd)/.." -DCMAKE_INSTALL_LIBDIR="lib" -DPCRE_SOURCE="." -DFAT_RUNTIME=on -DBUILD_SHARED_LIBS=on .
   make -j $THREADS
-  make install/strip
+  make install
   ;;
 macosx-x86_64|macosx-arm64)
   export MACOSX_DEPLOYMENT_TARGET=12
   cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX="$(pwd)/.." -DCMAKE_INSTALL_LIBDIR="lib" -DARCH_OPT_FLAGS='-Wno-error' -DPCRE_SOURCE="." -DBUILD_SHARED_LIBS=on .
   make -j $THREADS
-  make install/strip
+  make install
   ;;
 *)
   echo "Error: Arch \"$DETECTED_PLATFORM\" is not supported"
