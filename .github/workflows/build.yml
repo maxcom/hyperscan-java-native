@@ -75,9 +75,9 @@ jobs:
         uses: docker://ghcr.io/gliwka/centos7-toolchain:main@sha256:e6cf17223408bb4d1314be547d74b23d04bcf6480d2fe23822fb672a52775f76
         with:
           args: '"./build.sh"'
-      - name: Archive code coverage results
+      - name: Upload jar
         uses: actions/upload-artifact@v4
-        if: matrix.os == 'macos'
+        if: matrix.os == 'linux'
         with:
           name: jar
           path: target/native-5.4.11-2.0.0-linux-x86_64.jar
